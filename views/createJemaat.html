@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tambah Jemaat Baru</title>
+</head>
+<body>
+    <h2>Tambah Jemaat Baru</h2>
+    <form method="POST" action="http://localhost:7070/jemaat/">
+        <label for="nik">NIK:</label>
+        <input type="text" id="nik" name="nik"><br><br>
+        
+        <label for="nama_jemaat">Nama Jemaat:</label>
+        <input type="text" id="nama_jemaat" name="nama_jemaat"><br><br>
+        
+        <label for="tempat_lahir">Tempat Lahir:</label>
+        <input type="text" id="tempat_lahir" name="tempat_lahir"><br><br>
+
+        <label for="jenis_kelamin">Jenis Kelamin:</label>
+        <select id="jenis_kelamin" name="jenis_kelamin">
+            <option value="Pria">Pria</option>
+            <option value="Wanita">Wanita</option>
+        </select><br><br>
+        
+        <label for="alamat">Alamat:</label>
+        <input type="text" id="alamat" name="alamat"><br><br>
+        
+        <label for="no_hp">Nomor HP:</label>
+        <input type="text" id="no_hp" name="no_hp"><br><br>
+        
+        <input type="submit" value="Tambah Jemaat">
+    </form>
+</body>
+</html>

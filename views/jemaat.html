@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golang Consume API</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container mt-5">
+        <h3>Jemaat list</h3>
+        <a href="/createJemaat" class="btn btn-sm btn-primary">Tambah Data</a>
+        <hr/>
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>NIK</th>
+                    <th>Nama</th>
+                    <th>Tempat Lahir</th>
+                    <th>Jenis Kelamin</th>
+                    <th>Alamat</th>
+                    <th>No. HP</th>
+                </tr>
+            </thead>
+            <tbody id="jemaat-table">
+                
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        const jemaatTable = document.querySelector('#jemaat-table');
+
+        fetch('http://localhost:7070/jemaat/', {
+            method: 'GET',
+        })
+        .then(response => response.json())
+        .then(data => {
+            data.forEach(jemaat => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${jemaat.nik}</td>
+                    <td>${jemaat.nama_jemaat}</td>
+                    <td>${jemaat.tempat_lahir}</td>
+                    <td>${jemaat.jenis_kelamin}</td>
+                    <td>${jemaat.alamat}</td>
+                    <td>${jemaat.no_hp}</td>
+                `;
+                jemaatTable.appendChild(row);
+            });
+        })
+        .catch(error => console.error(error));
+    </script>
+</body>
+</html>
